@@ -1,0 +1,78 @@
+[
+  {
+    "type": "Action",
+    "image": "images/action.png"
+  },
+  {
+    "type": "Adventure",
+    "image": "images/adventure.png"
+  },
+  {
+    "type": "Animation",
+    "image": "images/animation.png"
+  },
+  {
+    "type": "Comedy",
+    "image": "images/comedy.png"
+  },
+  {
+    "type": "Crime",
+    "image": "images/crime.png"
+  },
+  {
+    "type": "Documentary",
+    "image": "images/documentary.png"
+  },
+  {
+    "type": "Drama",
+    "image": "images/drama.png"
+  },
+  {
+    "type": "Family",
+    "image": "images/family.png"
+  },
+  {
+    "type": "Fantasy",
+    "image": "images/fantasy.png"
+  },
+  {
+    "type": "History",
+    "image": "images/history.png"
+  },
+  {
+    "type": "Horror",
+    "image": "images/horror.png"
+  },
+  {
+    "type": "Music",
+    "image": "images/music.png"
+  },
+  {
+    "type": "Mystery",
+    "image": "images/mystery.png"
+  },
+  {
+    "type": "Romance",
+    "image": "images/romance.png"
+  },
+  {
+    "type": "Science Fiction",
+    "image": "images/scifi.png"
+  },
+  {
+    "type": "TV Movie",
+    "image": "images/tvmovie.png"
+  },
+  {
+    "type": "Thriller",
+    "image": "images/thriller.png"
+  },
+  {
+    "type": "War",
+    "image": "images/war.png"
+  },
+  {
+    "type": "Western",
+    "image": "images/western.png"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "type": "Action & Adventure",
+    "image": "images/actionandadventure.gif"
+  },
+  {
+    "type": "Animation",
+    "image": "images/animation.gif"
+  },
+  {
+    "type": "Comedy",
+    "image": "images/comedy.gif"
+  },
+  {
+    "type": "Crime",
+    "image": "images/crime.gif"
+  },
+  {
+    "type": "Documentary",
+    "image": "images/documentary.gif"
+  },
+  {
+    "type": "Drama",
+    "image": "images/drama.gif"
+  },
+  {
+    "type": "Family",
+    "image": "images/family.gif"
+  },
+  {
+    "type": "Kids",
+    "image": "images/kid.gif"
+  },
+  {
+    "type": "Mystery",
+    "image": "images/mystery.gif"
+  },
+  {
+    "type": "News",
+    "image": "images/news.gif"
+  },
+  {
+    "type": "Reality",
+    "image": "images/reality.gif"
+  },
+  {
+    "type": "Sci-Fi & Fantasy",
+    "image": "images/scifi.gif"
+  },
+  {
+    "type": "Soap",
+    "image": "images/soap.png"
+  },
+  {
+    "type": "Talk",
+    "image": "images/talk.gif"
+  },
+  {
+    "type": "War & Politics",
+    "image": "images/war.gif"
+  },
+  {
+    "type": "Western",
+    "image": "images/western.gif"
+  }
+]

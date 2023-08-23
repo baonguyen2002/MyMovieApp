@@ -1,0 +1,61 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button
+      slot="start"
+      [defaultHref]="defaultHref"
+      (click)="goBack()"
+    ></ion-back-button>
+    <ion-title>{{tvShow.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img
+      style="display: block; margin: 0 auto"
+      alt="poster"
+      [src]="tvShow.poster_path? imageBaseUrl + '/w500' + tvShow.poster_path : blankPoster"
+    />
+    <ion-card-header>
+      <ion-card-title> {{tvShow.name}} </ion-card-title>
+      <ion-card-subtitle *ngIf="tvShow.tagline">
+        "{{tvShow.tagline}}"
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content *ngIf="tvShow.overview">
+      {{tvShow.overview}}
+    </ion-card-content>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item *ngIf="hasOriginCountry" class="ion-no-padding">
+          Origin Country: {{ fullCountriesName }}
+        </ion-item>
+        <ion-item *ngIf="tvShow.homepage" class="ion-no-padding">
+          Home Page:
+          <a
+            style="
+              content: '\00a0';
+              margin-left: 0.4rem;
+              text-decoration: underline;
+            "
+            (click)="goToWebsite(tvShow.homepage)"
+          >
+            {{ tvShow.homepage }}</a
+          >
+        </ion-item>
+        <ion-item *ngIf="tvShow.in_production" class="ion-no-padding">
+          In Production: {{inProduction}}
+        </ion-item>
+        <ion-item *ngIf="hasLanguages" class="ion-no-padding">
+          Languages: {{fullCountriesLanguagesName}}
+        </ion-item>
+        <ion-item *ngIf="tvShow.number_of_episodes" class="ion-no-padding">
+          Number of Episodes: {{tvShow.number_of_episodes}}
+        </ion-item>
+        <ion-item *ngIf="tvShow.number_of_seasons" class="ion-no-padding">
+          Number of Seasons: {{tvShow.number_of_seasons}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

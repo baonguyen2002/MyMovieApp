@@ -1,0 +1,316 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{headerTitle}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="listViewOn()"
+        ><ion-icon name="list-outline"></ion-icon
+      ></ion-button>
+      <ion-button (click)="gridViewOn()"
+        ><ion-icon name="grid-outline"></ion-icon></ion-button
+    ></ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'popular'">
+      <ion-list *ngIf="listView">
+        <ion-item
+          button
+          *ngFor="let movie of popularMovies"
+          (click)="goToMovieDetails(movie.id)"
+          ><!--[routerLink]="['/tabs/movies',movie.id]" way to routerLink, incase you forget-->
+          <ion-avatar slot="start">
+            <img
+              [src]="movie.poster_path? imageBaseUrl + '/w92' + movie.poster_path:   blankPoster  "
+            />
+          </ion-avatar>
+          <ion-label>
+            <span style="font-weight: bolder; font-size: 1rem"
+              >{{ movie.title }}</span
+            >
+            <p>{{ movie.release_date | date: "Y"}}</p>
+          </ion-label>
+          <ion-badge slot="end">
+            {{ movie.vote_average | number: '1.1-1'}}</ion-badge
+          >
+        </ion-item>
+      </ion-list>
+
+      <ion-grid *ngIf="gridView">
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let movie of popularMovies"
+            (click)="goToMovieDetails(movie.id)"
+          >
+            <ion-card>
+              <img
+                style="width: 100%; height: auto; object-fit: contain"
+                alt="poster"
+                [src]="movie.poster_path? imageBaseUrl + '/w500' + movie.poster_path:   blankPoster   "
+              />
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <span style="font-weight: bolder">{{ movie.title }}</span>
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col> {{ movie.release_date | date: "Y"}}</ion-col>
+                    <ion-col>
+                      <ion-badge>
+                        {{ movie.vote_average | number: '1.1-1'}}
+                      </ion-badge>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll (ionInfinite)="loadMore($event,'popular')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <div *ngSwitchCase="'now_playing'">
+      <ion-list *ngIf="listView">
+        <ion-item
+          button
+          *ngFor="let movie of nowPlayingMovies"
+          (click)="goToMovieDetails(movie.id)"
+          ><!--[routerLink]="['/tabs/movies',movie.id]" way to routerLink, incase you forget-->
+          <ion-avatar slot="start">
+            <img
+              [src]="movie.poster_path? imageBaseUrl + '/w92' + movie.poster_path:   ''   "
+            />
+          </ion-avatar>
+          <ion-label>
+            <span style="font-weight: bolder; font-size: 1rem"
+              >{{ movie.title }}</span
+            >
+            <p>{{ movie.release_date | date: "Y"}}</p>
+          </ion-label>
+          <ion-badge slot="end">
+            {{ movie.vote_average | number: '1.1-1'}}</ion-badge
+          >
+        </ion-item>
+      </ion-list>
+
+      <ion-grid *ngIf="gridView">
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let movie of nowPlayingMovies"
+            (click)="goToMovieDetails(movie.id)"
+          >
+            <ion-card>
+              <img
+                style="width: 100%; height: auto; object-fit: contain"
+                alt="poster"
+                [src]="movie.poster_path? imageBaseUrl + '/w500' + movie.poster_path:   blankPoster   "
+              />
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <span style="font-weight: bolder; font-size: 1.5vh"
+                    >{{ movie.title }}</span
+                  >
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col> {{ movie.release_date | date: "Y"}}</ion-col>
+                    <ion-col>
+                      <ion-badge>
+                        {{ movie.vote_average | number: '1.1-1'}}
+                      </ion-badge>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'now_playing')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <div *ngSwitchCase="'top_rated'">
+      <ion-list *ngIf="listView">
+        <ion-item
+          button
+          *ngFor="let movie of topRatedMovies"
+          (click)="goToMovieDetails(movie.id)"
+          ><!--[routerLink]="['/tabs/movies',movie.id]" way to routerLink, incase you forget-->
+          <ion-avatar slot="start">
+            <img
+              [src]="movie.poster_path? imageBaseUrl + '/w92' + movie.poster_path:   ''   "
+            />
+          </ion-avatar>
+          <ion-label>
+            <span style="font-weight: bolder; font-size: 1rem"
+              >{{ movie.title }}</span
+            >
+            <p>{{ movie.release_date | date: "Y"}}</p>
+          </ion-label>
+          <ion-badge slot="end">
+            {{ movie.vote_average | number: '1.1-1'}}</ion-badge
+          >
+        </ion-item>
+      </ion-list>
+
+      <ion-grid *ngIf="gridView">
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let movie of topRatedMovies"
+            (click)="goToMovieDetails(movie.id)"
+          >
+            <ion-card>
+              <img
+                style="width: 100%; height: auto; object-fit: contain"
+                alt="poster"
+                [src]="movie.poster_path? imageBaseUrl + '/w500' + movie.poster_path:   blankPoster   "
+              />
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <span style="font-weight: bolder; font-size: 1.5vh"
+                    >{{ movie.title }}</span
+                  >
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col> {{ movie.release_date | date: "Y"}}</ion-col>
+                    <ion-col>
+                      <ion-badge>
+                        {{ movie.vote_average | number: '1.1-1'}}
+                      </ion-badge>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'top_rated')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+
+    <div *ngSwitchCase="'upcoming'">
+      <ion-list *ngIf="listView">
+        <ion-item
+          button
+          *ngFor="let movie of upcomingMovies"
+          (click)="goToMovieDetails(movie.id)"
+          ><!--[routerLink]="['/tabs/movies',movie.id]" way to routerLink, incase you forget-->
+          <ion-avatar slot="start">
+            <img
+              [src]="movie.poster_path? imageBaseUrl + '/w92' + movie.poster_path:   ''   "
+            />
+          </ion-avatar>
+          <ion-label>
+            <span style="font-weight: bolder; font-size: 1rem"
+              >{{ movie.title }}</span
+            >
+            <p>{{ movie.release_date | date: "Y"}}</p>
+          </ion-label>
+          <ion-badge slot="end">
+            {{ movie.vote_average | number: '1.1-1'}}</ion-badge
+          >
+        </ion-item>
+      </ion-list>
+
+      <ion-grid *ngIf="gridView">
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let movie of upcomingMovies"
+            (click)="goToMovieDetails(movie.id)"
+          >
+            <ion-card>
+              <img
+                style="width: 100%; height: auto; object-fit: contain"
+                alt="poster"
+                [src]="movie.poster_path? imageBaseUrl + '/w500' + movie.poster_path:   blankPoster   "
+              />
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <span style="font-weight: bolder; font-size: 1.5vh"
+                    >{{ movie.title }}</span
+                  >
+                </ion-card-subtitle>
+              </ion-card-header>
+
+              <ion-card-content>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col> {{ movie.release_date | date: "Y"}}</ion-col>
+                    <ion-col>
+                      <ion-badge>
+                        {{ movie.vote_average | number: '1.1-1'}}
+                      </ion-badge>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'upcoming')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment
+      (ionChange)="onSegmentChanged()"
+      [(ngModel)]="segment"
+      value="popular"
+    >
+      <ion-segment-button value="now_playing">
+        <ion-label>Now Playing</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="popular">
+        <ion-label>Popular</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="top_rated">
+        <ion-label>Top Rated</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="upcoming">
+        <ion-label>Upcoming</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

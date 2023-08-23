@@ -1,0 +1,5 @@
+country-list
+
+iso-639-1
+
+extra files: country-list.d.ts

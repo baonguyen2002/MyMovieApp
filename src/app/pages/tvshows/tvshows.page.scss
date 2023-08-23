@@ -1,0 +1,16 @@
+.dynamic-height-card {
+  max-height: 1200px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .dynamic-height-card {
+    max-height: 600px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dynamic-height-card {
+    max-height: 400px;
+  }
+}

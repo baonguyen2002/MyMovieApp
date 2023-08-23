@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button
+      slot="start"
+      [defaultHref]="'/tabs/movies/' + movieId"
+      (click)="goBack()"
+    ></ion-back-button>
+    <ion-title>{{person.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img
+    style="width: 100%"
+    [src]="person.profile_path ? imageBaseUrl + '/w500' + person.profile_path :  blankAvatar"
+  />
+  <ion-card style="background-color: #c6deed; color: black">
+    <ion-card-header>
+      <ion-card-title>
+        <span style="font-weight: bolder; font-size: 1.5em; color: black"
+          >{{person.name}}</span
+        >
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="person.birthday">
+      <span style="font-weight: bolder; font-size: 1.5em; color: black"
+        >{{person.birthday}}</span
+      >
+    </ion-card-content>
+    <ion-card-content
+      *ngIf="person.popularity"
+      style="font-size: 1.5em; color: black"
+    >
+      <ion-icon name="star" slot="start"></ion-icon>
+      {{person.popularity}}
+    </ion-card-content>
+    <ion-card-content *ngIf="person.biography">
+      <span style="font-size: 1.5em; color: black">{{person.biography}}</span>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

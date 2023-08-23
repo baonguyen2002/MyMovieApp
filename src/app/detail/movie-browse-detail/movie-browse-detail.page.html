@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/tabs/browse"></ion-back-button>
+    <ion-buttons slot="end">
+      <ion-button (click)="listViewOn()"
+        ><ion-icon name="list-outline"></ion-icon
+      ></ion-button>
+      <ion-button (click)="gridViewOn()"
+        ><ion-icon name="grid-outline"></ion-icon
+      ></ion-button>
+    </ion-buttons>
+    <ion-title>Movie Genre: {{movieGenreName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list *ngIf="listView">
+    <ion-item
+      detail="true"
+      button
+      *ngFor="let movie of moviesList"
+      (click)="goToMovieDetails(movie.id)"
+    >
+      <ion-avatar slot="start">
+        <img
+          [src]="movie.poster_path? imageBaseUrl + '/w92' + movie.poster_path:   blankPoster  "
+        />
+      </ion-avatar>
+      <ion-label>
+        <span style="font-weight: bolder; font-size: 1rem"
+          >{{ movie.title }}</span
+        >
+        <p>{{ movie.release_date | date: "Y"}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-grid *ngIf="gridView">
+    <ion-row>
+      <ion-col
+        size="6"
+        *ngFor="let movie of moviesList"
+        (click)="goToMovieDetails(movie.id)"
+      >
+        <ion-card>
+          <img
+            style="width: 100%; height: auto; object-fit: contain"
+            alt="poster"
+            [src]="movie.poster_path? imageBaseUrl + '/w500' + movie.poster_path:   blankPoster   "
+          />
+          <ion-card-header>
+            <ion-card-subtitle>
+              <span style="font-weight: bolder; font-size: 0.9rem"
+                >{{ movie.title }}</span
+              >
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content
+            >{{ movie.release_date | date: "Y"}}</ion-card-content
+          >
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="lines"
+      loadingText="Fetching more content..."
+    ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

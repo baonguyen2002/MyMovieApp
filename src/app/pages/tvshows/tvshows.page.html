@@ -1,0 +1,184 @@
+<ion-content [fullscreen]="true">
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'top_rated'">
+      <ion-toolbar>
+        <ion-title>Top Rated</ion-title>
+      </ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let show of topRatedShows"
+            size="6"
+            (click)="goToTVShowDetails(show.id)"
+            ><!--[routerLink]="['/tabs/tvshows',show.id]" This is the way to do routerLink, you might need it later-->
+            <ion-card class="dynamic-height-card">
+              <img
+                style="display: block; margin: 0 auto"
+                [src]="show.poster_path ? imageBaseUrl + '/w500' +
+              show.poster_path : blankPoster"
+              />
+              <ion-card-header>
+                <ion-card-subtitle> {{show.name}} </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content
+                *ngIf="show.overview"
+                style="text-overflow: ellipsis"
+              >
+                {{show.overview}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'top_rated')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'popular'">
+      <ion-toolbar>
+        <ion-title>Popular</ion-title>
+      </ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let show of popularShows"
+            size="6"
+            (click)="goToTVShowDetails(show.id)"
+            ><!--[routerLink]="['/tabs/tvshows',show.id]" This is the way to do routerLink, you might need it later-->
+            <ion-card class="dynamic-height-card">
+              <img
+                style="display: block; margin: 0 auto"
+                [src]="show.poster_path ? imageBaseUrl + '/w500' +
+              show.poster_path : blankPoster"
+              />
+              <ion-card-header>
+                <ion-card-subtitle> {{show.name}} </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content
+                *ngIf="show.overview"
+                style="text-overflow: ellipsis"
+              >
+                {{show.overview}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'popular')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'on_the_air'">
+      <ion-toolbar>
+        <ion-title>On The Air</ion-title>
+      </ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let show of onTheAirShows"
+            size="6"
+            (click)="goToTVShowDetails(show.id)"
+            ><!--[routerLink]="['/tabs/tvshows',show.id]" This is the way to do routerLink, you might need it later-->
+            <ion-card class="dynamic-height-card">
+              <img
+                style="display: block; margin: 0 auto"
+                [src]="show.poster_path ? imageBaseUrl + '/w500' +
+              show.poster_path : blankPoster"
+              />
+              <ion-card-header>
+                <ion-card-subtitle> {{show.name}} </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content
+                *ngIf="show.overview"
+                style="text-overflow: ellipsis"
+              >
+                {{show.overview}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'on_the_air')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'airing_today'">
+      <ion-toolbar>
+        <ion-title>Airing Today</ion-title>
+      </ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            *ngFor="let show of airingTodayShows"
+            size="6"
+            (click)="goToTVShowDetails(show.id)"
+            ><!--[routerLink]="['/tabs/tvshows',show.id]" This is the way to do routerLink, you might need it later-->
+            <ion-card class="dynamic-height-card">
+              <img
+                style="display: block; margin: 0 auto"
+                [src]="show.poster_path ? imageBaseUrl + '/w500' +
+              show.poster_path : blankPoster"
+              />
+              <ion-card-header>
+                <ion-card-subtitle> {{show.name}} </ion-card-subtitle>
+              </ion-card-header>
+              <ion-card-content
+                *ngIf="show.overview"
+                style="text-overflow: ellipsis"
+              >
+                {{show.overview}}
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-infinite-scroll (ionInfinite)="loadMore($event, 'airing_today')">
+        <ion-infinite-scroll-content
+          loadingSpinner="lines"
+          loadingText="Fetching more content..."
+        ></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment
+      [(ngModel)]="segment"
+      [value]="segment"
+      (ionChange)="onSegmentChanged()"
+    >
+      <ion-segment-button value="airing_today">
+        <ion-label>Airing Today</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="top_rated">
+        <ion-label>Top Rated</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="on_the_air">
+        <ion-label>On The Air</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="popular">
+        <ion-label>Popular</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>

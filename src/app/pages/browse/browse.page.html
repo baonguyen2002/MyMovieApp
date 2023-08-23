@@ -1,0 +1,134 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Browse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'movie'">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let movieGenre of moviesGenresList, let i = index"
+          >
+            <ion-card
+              style="
+                border: 2px solid blue;
+                border-radius: 20%;
+                position: relative;
+
+                padding-bottom: 100%;
+              "
+              (click)="goToMovieGenre(movieGenre.name)"
+              ><!--[routerLink]="['/tabs/browse',movieGenre.name]"-->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  display: flex;
+                  flex-direction: column;
+                "
+              >
+                <img
+                  style="display: block; margin: 0 auto; height: 90%"
+                  alt="genre"
+                  *ngIf="movieImageList[i]"
+                  [src]="'../../../assets/' + movieImageList[i].image"
+                />
+                <ion-card-header
+                  style="
+                    text-align: center;
+
+                    padding-top: 20px;
+                  "
+                >
+                  <ion-card-subtitle
+                    style="font-size: 0.8em; line-height: 1.2em"
+                    >{{movieGenre.name}}</ion-card-subtitle
+                  ></ion-card-header
+                >
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'tvshows'">
+      <ion-grid>
+        <ion-row>
+          <ion-col
+            size="6"
+            *ngFor="let tvShowsGenre of tvShowsGenresList, let i = index"
+          >
+            <ion-card
+              style="
+                border: 2px solid blue;
+                border-radius: 20%;
+                position: relative;
+
+                padding-bottom: 100%;
+              "
+              (click)="goToTvShowGenre(tvShowsGenre.name)"
+              ><!--[routerLink]="['/tabs/browse',movieGenre.name]"-->
+              <div
+                style="
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  left: 0;
+                  right: 0;
+                  display: flex;
+                  flex-direction: column;
+                "
+              >
+                <img
+                  style="
+                    display: block;
+                    margin: 0 auto;
+                    min-height: 60%;
+                    width: 100%;
+                  "
+                  alt="genre"
+                  *ngIf="tvShowsImageList[i]"
+                  [src]="'../../../assets/' + tvShowsImageList[i].image"
+                />
+                <ion-card-header
+                  style="
+                    text-align: center;
+
+                    padding-top: 20px;
+                  "
+                >
+                  <ion-card-subtitle
+                    style="font-size: 0.8em; line-height: 1.2em"
+                    >{{tvShowsGenre.name}}</ion-card-subtitle
+                  ></ion-card-header
+                >
+              </div>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segment" value="movie">
+      <ion-segment-button value="movie">
+        <ion-label>Movies</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="tvshows">
+        <ion-label>TV Shows</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-footer>
