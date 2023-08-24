@@ -28,6 +28,7 @@ __Tools__
   Developer API: [(https://developer.themoviedb.org/docs)]
 
 __Prerequisite__
+
 To run this project, you need to install:
 - [NodeJS](https://nodejs.org/en)
 - After that please open your terminal and install Cordova and Ionic:
