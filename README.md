@@ -44,3 +44,12 @@ npm install -g ionic
 ```terminal
 ionic serve
 ```
+
+
+__Known bugs__
+There is still a specific bug I that I haven't figured out.
+1. Go to the Browse section, pick a genre
+2. Pick a movie, then press Back at top left of page
+3. Now to go Movies section, the movie now reappears, but the Back button is broken
+4. Pressing the Movies section again seems to reset and resolve the issue
+5. The same bug can be produced with TV Shows
