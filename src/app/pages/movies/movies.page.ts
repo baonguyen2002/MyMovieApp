@@ -144,6 +144,12 @@ export class MoviesPage implements OnInit, ViewWillEnter {
     });
   }
   headerTitle: string = '';
+
+  popular: boolean = true;
+  now_playing: boolean = false;
+  top_rated: boolean = false;
+  upcoming: boolean = false;
+
   onSegmentChanged() {
     if (!this.firstLoad) {
       const state = history.state;
@@ -152,15 +158,31 @@ export class MoviesPage implements OnInit, ViewWillEnter {
     }
 
     if (this.segment === 'popular') {
+      this.popular = true;
+      this.now_playing = false;
+      this.upcoming = false;
+      this.top_rated = false;
       this.headerTitle = 'Popular Movies';
     }
     if (this.segment === 'now_playing') {
+      this.popular = false;
+      this.now_playing = true;
+      this.upcoming = false;
+      this.top_rated = false;
       this.headerTitle = 'Now Playing Movies';
     }
     if (this.segment === 'top_rated') {
+      this.popular = false;
+      this.now_playing = false;
+      this.upcoming = false;
+      this.top_rated = true;
       this.headerTitle = 'Top Rated Movies';
     }
     if (this.segment === 'upcoming') {
+      this.popular = false;
+      this.now_playing = false;
+      this.upcoming = true;
+      this.top_rated = false;
       this.headerTitle = 'Upcoming Movies';
     }
   }
