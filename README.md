@@ -31,8 +31,16 @@ __Prerequisite__
 <pre>To run this project, you need to install:</pre>
 - [NodeJS](https://nodejs.org/en)
 - After that please open your terminal and install Cordova and Ionic:
-  <pre>```npm install -g cordova```</pre>
-  <pre>```npm install -g ionic```</pre>
+  <pre>
+    ```
+    npm install -g cordova
+    ```
+  </pre>
+  <pre>
+    ```
+    npm install -g ionic
+    ```
+  </pre>
 - Clone this project to your local repository
 - Open the local directory with the IDE editor of your choice, open a new terminal inside your IDE and type:
   ```ionic serve```
