@@ -4,14 +4,14 @@
 __Description__
 This app aims to provide user an simple way to view and search for a movie or a tv show which they are interested in.
 
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/1.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/2.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/3.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/4.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/5.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/6.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/7.png))
-![Imaget]([image_url](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/8.png))
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/1.png)
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/2.png)
+![Imaget(https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/3.png)
+![Imaget(https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/4.png)
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/5.png)
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/6.png)
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/7.png)
+![Image](https://github.com/baonguyen2002/MyMovieApp/blob/master/app%20images/8.png)
 
 
 __Features__
