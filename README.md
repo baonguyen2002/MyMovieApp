@@ -40,6 +40,7 @@ npm install -g ionic
 ```
 - Clone this project to your local repository
 - Open the local directory with the IDE editor of your choice, open a new terminal inside your IDE and type:
+
 ```terminal
 ionic serve
 ```
