@@ -21,6 +21,12 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               {
+                "glob": "_redirects",
+                "input": "src",
+                "output": "/"
+              },
+              "src/_redirects",
+              {
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
@@ -100,11 +106,6 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "_redirects",
-                "input": "src",
-                "output": "/"
-              },
               {
                 "glob": "**/*",
                 "input": "src/assets",
