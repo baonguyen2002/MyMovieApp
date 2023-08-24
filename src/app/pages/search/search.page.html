@@ -148,10 +148,10 @@
 <ion-footer>
   <ion-toolbar>
     <ion-segment [(ngModel)]="segment" value="movie">
-      <ion-segment-button value="movie">
+      <ion-segment-button value="movie" (click)="resetSearch()">
         <ion-label>Movies</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="tvshows">
+      <ion-segment-button value="tvshows" (click)="resetSearch()">
         <ion-label>TV Shows</ion-label>
       </ion-segment-button>
     </ion-segment>

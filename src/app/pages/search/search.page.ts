@@ -80,6 +80,11 @@ export class SearchPage implements OnInit, ViewWillEnter {
         }
       });
   }
+  resetSearch() {
+    this.movieResults = [];
+    this.tvShowsResults = [];
+    this.input = '';
+  }
   segment: string = 'movie';
 
   listView: boolean = true;
