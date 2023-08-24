@@ -22,17 +22,17 @@ __Features__
 
 __Tools__
 + Written using Ionic Framework:
-  Ionic Framework: [(https://ionicframework.com/)]
+  * Ionic Framework: https://ionicframework.com/
 + Utilizing The Movie Database's Developer API to display information about movies and TV Shows:
-  The Movie Database Site: [(https://www.themoviedb.org/)]
-  Developer API: [(https://developer.themoviedb.org/docs)]
+  * The Movie Database Site: https://www.themoviedb.org/
+  * Developer API: https://developer.themoviedb.org/docs
 
 __Prerequisite__
 
 To run this project, you need to install:
 - [NodeJS](https://nodejs.org/en)
 - After that please open your terminal and install Cordova and Ionic:
-  ```npm install -g cordova```
+  <pre>```npm install -g cordova```</pre>
   ```npm install -g ionic```
 - Clone this project to your local repository
 - Open the local directory with the IDE editor of your choice, open a new terminal inside your IDE and type:
