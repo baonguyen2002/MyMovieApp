@@ -31,13 +31,15 @@ __Prerequisite__
 <pre>To run this project, you need to install:</pre>
 - [NodeJS](https://nodejs.org/en)
 - After that please open your terminal and install Cordova and Ionic:
-```shell
+```terminal
 npm install -g cordova
 ```
 
-```shell
+```terminal
 npm install -g ionic
 ```
 - Clone this project to your local repository
 - Open the local directory with the IDE editor of your choice, open a new terminal inside your IDE and type:
-  ```ionic serve```
+  ```terminal
+  ionic serve
+  ```
