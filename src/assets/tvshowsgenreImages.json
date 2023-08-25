@@ -1,51 +1,51 @@
 [
   {
     "type": "Action & Adventure",
-    "image": "images/actionandadventure.gif"
+    "image": "images/actionandadventure.png"
   },
   {
     "type": "Animation",
-    "image": "images/animation.gif"
+    "image": "images/animation2.png"
   },
   {
     "type": "Comedy",
-    "image": "images/comedy.gif"
+    "image": "images/comedy2.png"
   },
   {
     "type": "Crime",
-    "image": "images/crime.gif"
+    "image": "images/crime2.png"
   },
   {
     "type": "Documentary",
-    "image": "images/documentary.gif"
+    "image": "images/documentary2.png"
   },
   {
     "type": "Drama",
-    "image": "images/drama.gif"
+    "image": "images/drama2.png"
   },
   {
     "type": "Family",
-    "image": "images/family.gif"
+    "image": "images/family2.png"
   },
   {
     "type": "Kids",
-    "image": "images/kid.gif"
+    "image": "images/kid.png"
   },
   {
     "type": "Mystery",
-    "image": "images/mystery.gif"
+    "image": "images/mystery2.png"
   },
   {
     "type": "News",
-    "image": "images/news.gif"
+    "image": "images/news.png"
   },
   {
     "type": "Reality",
-    "image": "images/reality.gif"
+    "image": "images/reality.png"
   },
   {
     "type": "Sci-Fi & Fantasy",
-    "image": "images/scifi.gif"
+    "image": "images/scifi2.png"
   },
   {
     "type": "Soap",
@@ -53,14 +53,14 @@
   },
   {
     "type": "Talk",
-    "image": "images/talk.gif"
+    "image": "images/talk.png"
   },
   {
     "type": "War & Politics",
-    "image": "images/war.gif"
+    "image": "images/war2.png"
   },
   {
     "type": "Western",
-    "image": "images/western.gif"
+    "image": "images/western2.png"
   }
 ]
